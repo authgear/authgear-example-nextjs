@@ -36,7 +36,7 @@ AUTHGEAR_CLIENT_ID={your-client-id}
 AUTHGEAR_CLIENT_SECRET={your-client-secret}
 ```
 
-Replace with Authgear app settings values from **Part1** such as `Issuer`, `ClientId`, `ClientSecret`.
+Replace values with your Authgear OIDC Client application settings such as `Issuer`, `ClientId`, `ClientSecret`.
 
 Start the HTTP server by running the following command.
 
