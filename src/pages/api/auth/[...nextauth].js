@@ -9,7 +9,10 @@ export const authOptions = {
             issuer: process.env.AUTHGEAR_ISSUER,
             clientId: process.env.AUTHGEAR_CLIENT_ID,
             clientSecret: process.env.AUTHGEAR_CLIENT_SECRET,
-            wellKnown: `${process.env.AUTHGEAR_ISSUER}/.well-known/openid-configuration/`,
+            wellKnown: `${process.env.AUTHGEAR_ISSUER}/.well-known/openid-configuration`,
+            client: {
+                token_endpoint_auth_method: "client_secret_post",
+            },
             profile(profile) {
               return {
                 id: profile.sub,
@@ -22,3 +25,4 @@ export const authOptions = {
 }
 
 export default NextAuth(authOptions)
+
