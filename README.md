@@ -19,7 +19,7 @@ Before you begin, you'll need the following:
 Start by cloning the project into your local machine:
 
 ```bash
-git clone git clone https://github.com/authgear/authgear-example-nextjs.git
+git clone https://github.com/authgear/authgear-example-nextjs.git
 ```
 
 Make the project directory your current working directory:
