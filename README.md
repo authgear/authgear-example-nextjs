@@ -12,9 +12,14 @@ This repo demonstrates how to integrate [Authgear](https://www.authgear.com/) wi
 
 Before you begin, you'll need the following:
 
-- A **free Authgear account**. [Sign up](https://oursky.typeform.com/to/S5lvI8rN) if you don't have one already.
+- A **free Authgear account**. [Sign up](https://portal.authgear.com) if you don't have one already.
 - [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 - Experience with [Next.js](https://nextjs.org/) framework and application development.
+
+On the Authgear portal, you shall create an OIDC client by:
+
+1. Click **Applications**, **Add Application**, choose **OIDC Client Application** to create the Application.
+2. Put `http://localhost:3000/api/auth/callback/authgear` in **Authorized Redirect URIs**.
 
 Start by cloning the project into your local machine:
 
@@ -31,7 +36,7 @@ cd authgear-example-nextjs
 In the root directory of your project, add the file `.env.local` with the following environment variables:
 
 ```jsx
-AUTHGEAR_ISSUER={your-authgear-app-endpoint}
+AUTHGEAR_ISSUER={your-authgear-app-endpoint, e.g. https://yourname.authgear.cloud}
 AUTHGEAR_CLIENT_ID={your-client-id}
 AUTHGEAR_CLIENT_SECRET={your-client-secret}
 ```
