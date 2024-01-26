@@ -31,7 +31,6 @@ export const authOptions = {
 
                 token.email = profile.email
                 token.phone_number = profile.phone_number
-                token.username = profile.username
             }
             return token
         },
@@ -44,7 +43,6 @@ export const authOptions = {
 
             session.user.email = token.email
             session.user.phone_number = token.phone_number
-            session.user.username = token.username
 
             return session
         }
