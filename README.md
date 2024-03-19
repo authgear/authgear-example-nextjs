@@ -43,6 +43,11 @@ AUTHGEAR_CLIENT_SECRET={your-client-secret}
 
 Replace values with your Authgear OIDC Client application settings such as `Issuer`, `ClientId`, `ClientSecret`.
 
+To install project dependencies run:
+```bash
+npm install
+```
+
 Start the HTTP server by running the following command.
 
 ```bash
