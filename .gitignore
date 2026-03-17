@@ -22,6 +22,7 @@
 
 # misc
 .DS_Store
+CLAUDE.md
 *.pem
 
 # debug
@@ -32,6 +33,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.local.dist
 
 # vercel
 .vercel
