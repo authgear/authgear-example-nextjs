@@ -29,7 +29,7 @@ export default function Home() {
             Test Protected API
           </button>
           {apiResult && (
-            <pre className="rounded-md bg-gray-100 p-4 text-sm">{apiResult}</pre>
+            <pre className="rounded-md bg-gray-100 dark:bg-gray-800 p-4 text-sm">{apiResult}</pre>
           )}
           <SignOutButton className="rounded-md bg-red-600 px-6 py-2 text-white hover:bg-red-700">
             Logout

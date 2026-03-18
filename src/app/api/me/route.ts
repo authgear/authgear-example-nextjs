@@ -1,13 +1,13 @@
-import { auth } from "@authgear/nextjs/server";
+import { currentUser } from "@authgear/nextjs/server";
 import { authgearConfig } from "@/lib/authgear";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const session = await auth(authgearConfig);
+  const user = await currentUser(authgearConfig);
 
-  if (session.state !== "AUTHENTICATED" || !session.user) {
+  if (!user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  return NextResponse.json({ user: session.user });
+  return NextResponse.json({ user });
 }
