@@ -66,7 +66,7 @@ src/
 
 ## Learn More
 
-- [Authgear Next.js Integration Tutorial](https://docs.authgear.com/get-started/regular-web-app/next.js) — step-by-step guide for this example
+- [Authgear Next.js Integration Tutorial](https://docs.authgear.com/get-started/regular-web-app/nextjs) — step-by-step guide for this example
 - [Authgear Documentation](https://docs.authgear.com/)
 - [`@authgear/nextjs` on npm](https://www.npmjs.com/package/@authgear/nextjs)
 - [Next.js Documentation](https://nextjs.org/docs)
