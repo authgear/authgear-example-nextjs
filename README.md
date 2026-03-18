@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + Authgear Example
+
+This example demonstrates how to integrate [Authgear](https://www.authgear.com/) authentication into a [Next.js 16](https://nextjs.org) App Router application using the [`@authgear/nextjs`](https://www.npmjs.com/package/@authgear/nextjs) SDK.
+
+## What's inside
+
+- Login and logout via Authgear hosted UI
+- Display the authenticated user's ID, email, and phone number
+- A protected API route (`/api/me`) that returns current user info — server-side, using the session cookie
+
+## Prerequisites
+
+- An [Authgear](https://portal.authgear.com/) account with a project created
+- Node.js 18+
 
 ## Getting Started
 
-First, run the development server:
+### 1. Configure Authgear
+
+In the [Authgear Portal](https://portal.authgear.com/), open your project and create an application:
+
+1. Go to **Applications** → **Add Application**
+2. Select **OIDC Client Application**
+3. Under **Authorized Redirect URIs**, add `http://localhost:3000/api/auth/callback`
+4. Note your **Endpoint**, **Client ID**, and **Client Secret**
+
+### 2. Set up environment variables
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.local.dist .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Fill in `.env.local`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+AUTHGEAR_ENDPOINT=https://your-project.authgear.cloud
+AUTHGEAR_CLIENT_ID=your-client-id
+AUTHGEAR_CLIENT_SECRET=your-client-secret
+AUTHGEAR_REDIRECT_URI=http://localhost:3000/api/auth/callback
+SESSION_SECRET=a-random-string-of-at-least-32-characters
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Install dependencies and run
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── api/
+│   │   ├── auth/[...authgear]/route.ts   # OAuth route handler (login, callback, logout, …)
+│   │   └── me/route.ts                   # Protected API route
+│   ├── layout.tsx                        # Root layout with AuthgearProvider
+│   ├── page.tsx                          # Home page with login/logout UI
+│   └── providers.tsx                     # Client component wrapping AuthgearProvider
+└── lib/
+    └── authgear.ts                       # Shared Authgear config
+```
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Authgear Next.js Integration Tutorial](./tutorial.md) — step-by-step guide for this example
+- [Authgear Documentation](https://docs.authgear.com/)
+- [`@authgear/nextjs` on npm](https://www.npmjs.com/package/@authgear/nextjs)
+- [Next.js Documentation](https://nextjs.org/docs)
