@@ -22,6 +22,11 @@ export default function Home() {
           <p className="text-gray-600">
             Logged in as: <span className="font-mono">{user?.sub}</span>
           </p>
+          {(user?.email ?? user?.phoneNumber) && (
+            <p className="text-gray-600">
+              {user?.email ?? user?.phoneNumber}
+            </p>
+          )}
           <button
             onClick={testProtectedApi}
             className="rounded-md bg-green-600 px-6 py-2 text-white hover:bg-green-700"
