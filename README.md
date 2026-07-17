@@ -23,7 +23,7 @@ In the [Authgear Portal](https://portal.authgear.com/), open your project and cr
 1. Go to **Applications** → **Add Application**
 2. Select **OIDC Client Application**
 3. Under **Authorized Redirect URIs**, add `http://localhost:3000/api/auth/callback`
-4. Note your **Endpoint**, **Client ID**, and **Client Secret**
+4. Note your **Endpoint** and **Client ID**
 
 ### 2. Set up environment variables
 
@@ -36,7 +36,6 @@ Fill in `.env.local`:
 ```bash
 AUTHGEAR_ENDPOINT=https://your-project.authgear.cloud
 AUTHGEAR_CLIENT_ID=your-client-id
-AUTHGEAR_CLIENT_SECRET=your-client-secret
 AUTHGEAR_REDIRECT_URI=http://localhost:3000/api/auth/callback
 SESSION_SECRET=a-random-string-of-at-least-32-characters
 ```
