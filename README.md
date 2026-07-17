@@ -7,6 +7,7 @@ This example demonstrates how to integrate [Authgear](https://www.authgear.com/)
 - Login and logout via Authgear hosted UI
 - Display the authenticated user's ID, email, and phone number
 - A protected API route (`/api/me`) that returns current user info — server-side, using the session cookie
+- Reading the session's access token (`/api/token`) via `auth()` — the token you forward to downstream APIs as a Bearer token
 
 ## Prerequisites
 
@@ -56,7 +57,8 @@ src/
 ├── app/
 │   ├── api/
 │   │   ├── auth/[...authgear]/route.ts   # OAuth route handler (login, callback, logout, …)
-│   │   └── me/route.ts                   # Protected API route
+│   │   ├── me/route.ts                   # Protected API route (profile via currentUser)
+│   │   └── token/route.ts                # Reads the access token via auth()
 │   ├── layout.tsx                        # Root layout with AuthgearProvider
 │   ├── page.tsx                          # Home page with login/logout UI
 │   └── providers.tsx                     # Client component wrapping AuthgearProvider

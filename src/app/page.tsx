@@ -13,6 +13,12 @@ export default function Home() {
     setApiResult(JSON.stringify(data, null, 2));
   }
 
+  async function showAccessToken() {
+    const res = await fetch("/api/token");
+    const data = await res.json();
+    setApiResult(JSON.stringify(data, null, 2));
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-6">
       <h1 className="text-3xl font-bold">Next.js + Authgear</h1>
@@ -32,6 +38,12 @@ export default function Home() {
             className="rounded-md bg-green-600 px-6 py-2 text-white hover:bg-green-700"
           >
             Test Protected API
+          </button>
+          <button
+            onClick={showAccessToken}
+            className="rounded-md bg-amber-600 px-6 py-2 text-white hover:bg-amber-700"
+          >
+            Show Access Token
           </button>
           {apiResult && (
             <pre className="rounded-md bg-gray-100 dark:bg-gray-800 p-4 text-sm">{apiResult}</pre>
